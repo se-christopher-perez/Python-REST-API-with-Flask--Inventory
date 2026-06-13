@@ -56,6 +56,13 @@ def delete_product(id):
         return jsonify({"message": "Product deleted"}), 200
     return jsonify({"error": "Product not found"}), 404
 
+@app.route("/inventory/search/<barcode>")
+def search_product(barcode):
+    found_product = FoodAPI().search_barcode(barcode)
+
+    if found_product:
+        return jsonify(found_product), 200
+    return jsonify({"error": "Product not found"}), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
