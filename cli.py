@@ -43,3 +43,18 @@ def update_product(id, price, stock):
 
     print(response.json())
 
+update_product(3, 29.99, 100)
+
+def delete_product(id):
+    response = requests.delete(f"{URL}/inventory/{id}")
+
+    print(response.json())
+
+delete_product(1)
+
+def search_barcode(barcode):
+    response = requests.get(f"{URL}/inventory/search/{barcode}")
+
+    print(response.json())
+
+search_barcode("3017620422003")
