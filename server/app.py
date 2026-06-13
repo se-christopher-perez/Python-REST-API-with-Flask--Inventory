@@ -38,7 +38,7 @@ def add_product():
     return jsonify(new_product), 201
 
 @app.route("/inventory/<int:id>", methods=["PATCH"])
-def update_item(id):
+def update_product(id):
     found_product = next((item for item in inventory if item["id"] == id), None)
 
     if found_product:
@@ -47,7 +47,8 @@ def update_item(id):
         return jsonify(found_product), 200
     return jsonify({"error": "Product not found"}), 404
 
-
+@app.route("/inventory/<int:id>", methods=["DELETE"])
+def delete_product
 
 if __name__ == "__main__":
     app.run(debug=True)
