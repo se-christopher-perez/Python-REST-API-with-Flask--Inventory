@@ -49,12 +49,12 @@ root
 ## API Endpoints
 - GET - /inventory - Fetch all products
 
-- GET - /inventory/<id> - Fetch a product
+- GET - `/inventory/<id>` - Fetch a product
 
 - POST - /inventory - Add a new product
 
-- PATCH - /inventory/<id> - Update a product
+- PATCH - `/inventory/<id>` - Update a product
 
-- DELETE - /inventory/<id> - Delete a product
+- DELETE - `/inventory/<id>` - Delete a product
 
-- GET - /inventory/search/<barcode> - Use OpenFood API and search by barcode number
+- GET - `/inventory/search/<barcode>` - Use OpenFood API and search by barcode number
