@@ -10,15 +10,13 @@ class FoodAPI:
         response = requests.get(
             f"https://world.openfoodfacts.org/api/v0/product/{barcode}.json",
             headers=HEADERS
-        ).json()
+        )
 
         if response.status_code != 200:
             print(f"Error: {response.status_code}")
             return None
 
-        product = response["product"]
-
-        print(product)
+        product = response.json()["product"]
 
         return {
             "product_name": product["product_name"],
