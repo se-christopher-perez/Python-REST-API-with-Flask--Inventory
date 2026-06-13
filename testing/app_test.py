@@ -22,7 +22,7 @@ def test_add_product():
 
         "product_name": "Oreos",
         "brands": "Nabisco",
-        "ingredients": "Sugar, flour, cocoa...",
+        "ingredients": "Sugar, flour, cocoa",
         "quantity": "154g",
         "price": 2.99,
         "stock": 30
@@ -31,3 +31,5 @@ def test_add_product():
 
     if response.status_code != 201:
         return TypeError(f"error: {response.status_code}")
+
+
