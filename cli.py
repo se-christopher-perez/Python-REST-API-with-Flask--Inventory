@@ -16,3 +16,4 @@ def get_product(id):
     print(response.json())
 
 get_product(2)
+
