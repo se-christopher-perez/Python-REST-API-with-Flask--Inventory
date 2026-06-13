@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from data import inventory
-# from lib.food_api import FoodAPI
+from food_api import FoodAPI
 
 app = Flask(__name__)
 
@@ -48,7 +48,14 @@ def update_product(id):
     return jsonify({"error": "Product not found"}), 404
 
 @app.route("/inventory/<int:id>", methods=["DELETE"])
-def delete_product
+def delete_product(id):
+    found_product = next((item for item in inventory if item["id"] == id), None)
+
+    if found_product:
+        inventory.remove(found_product)
+        return jsonify({"message": "Product deleted"}), 200
+    return jsonify({"error": "Product not found"}), 404
+
 
 if __name__ == "__main__":
     app.run(debug=True)
