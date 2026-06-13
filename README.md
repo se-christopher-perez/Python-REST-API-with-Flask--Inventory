@@ -64,8 +64,13 @@ root
 
 ## CLI Commands
 - get_all() - View all inventory
+
 - get_product(id) - View single item
+
 - add_new_product() - Add a product
+
 - update_product(id, price, stock) - Update price and stock
+
 - delete_product(id) - Delete a product
+
 - search_barcode(barcode) - Search OpenFoodFacts
