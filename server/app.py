@@ -4,8 +4,6 @@ from data import inventory
 
 app = Flask(__name__)
 
-
-
 @app.route("/inventory", methods=["GET"])
 def get_inventory():
     return jsonify(inventory), 200
@@ -38,6 +36,18 @@ def add_product():
     inventory.append(new_product)
 
     return jsonify(new_product), 201
+
+@app.route("/inventory/<int:id>", methods=["PATCH"])
+def update_item(id):
+    found_product = next((item for item in inventory if item["id"] == id), None)
+
+    if found_product:
+        data = request.get_json()
+        found_product.update(data)
+        return jsonify(found_product), 200
+    return jsonify({"error": "Product not found"}), 404
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
